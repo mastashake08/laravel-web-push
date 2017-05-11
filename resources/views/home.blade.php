@@ -72,6 +72,7 @@ function getSWRegistration(){
     reject(Error("It broke"));
   }
   });
+  return promise;
 }
 function subscribeUserToPush() {
   getSWRegistration()
