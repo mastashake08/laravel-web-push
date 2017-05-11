@@ -26,3 +26,11 @@ Route::post('/save-subscription/{id}',function($id, Request $request){
     'success' => true
   ]);
 });
+
+Route::get('/send-notification/{id}', function($id){
+  $user = \App\User::findOrFail($id);
+  $user->notify(new \App\Notifications\GenericNotification());
+  return response()->json([
+    'success' => true
+  ]);
+});
