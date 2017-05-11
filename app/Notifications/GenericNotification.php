@@ -40,7 +40,7 @@ class GenericNotification extends Notification
             // ->id($notification->id)
             ->title('This Is A Random Webpush')
             //->icon('/approved-icon.png')
-            ->body("The time is {$time}!")
+            ->body("The time is {$time}!");
             //->action('View account', 'view_account');
     }
 
