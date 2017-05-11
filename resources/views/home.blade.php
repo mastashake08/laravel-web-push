@@ -17,7 +17,7 @@
 
 <script>
 function registerServiceWorker() {
-  return navigator.serviceWorker.register('service-worker.js')
+  return navigator.serviceWorker.register('js/service-worker.js')
   .then(function(registration) {
     console.log('Service worker successfully registered.');
     return registration;
