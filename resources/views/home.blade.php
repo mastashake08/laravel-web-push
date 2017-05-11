@@ -28,6 +28,7 @@ function registerServiceWorker() {
     console.error('Unable to register service worker.', err);
   });
 }
+
 function askPermission() {
   return new Promise(function(resolve, reject) {
     const permissionResult = Notification.requestPermission(function(result) {
@@ -47,6 +48,7 @@ function askPermission() {
     }
   });
 }
+
 function urlBase64ToUint8Array(base64String) {
   const padding = '='.repeat((4 - base64String.length % 4) % 4);
   const base64 = (base64String + padding)
@@ -61,6 +63,7 @@ function urlBase64ToUint8Array(base64String) {
   }
   return outputArray;
 }
+
 function getSWRegistration(){
   var promise = new Promise(function(resolve, reject) {
   // do a thing, possibly async, then…
@@ -74,6 +77,7 @@ function getSWRegistration(){
   });
   return promise;
 }
+
 function subscribeUserToPush() {
   getSWRegistration()
   .then(function(registration) {
