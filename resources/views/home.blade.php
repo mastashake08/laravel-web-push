@@ -64,7 +64,7 @@ function getSWRegistration(){
   return navigator.serviceWorker.getRegistration();
 }
 function subscribeUserToPush() {
-  return getSWRegistration()
+  navigator.serviceWorker.getRegistration()
   .then(function(registration) {
     console.log(registration);
     const subscribeOptions = {
