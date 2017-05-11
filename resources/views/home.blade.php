@@ -16,10 +16,12 @@
 </div>
 
 <script>
+var _registration = null;
 function registerServiceWorker() {
   return navigator.serviceWorker.register('js/service-worker.js')
   .then(function(registration) {
     console.log('Service worker successfully registered.');
+    _registration = registration;
     return registration;
   })
   .catch(function(err) {
@@ -60,11 +62,19 @@ function urlBase64ToUint8Array(base64String) {
   return outputArray;
 }
 function getSWRegistration(){
-  console.log(navigator.serviceWorker.getRegistration());
-  return navigator.serviceWorker.getRegistration();
+  var promise = new Promise(function(resolve, reject) {
+  // do a thing, possibly async, then…
+
+  if (_registration != null) {
+    resolve(_registration);
+  }
+  else {
+    reject(Error("It broke"));
+  }
+  });
 }
 function subscribeUserToPush() {
-  navigator.serviceWorker.getRegistration()
+  getSWRegistration()
   .then(function(registration) {
     console.log(registration);
     const subscribeOptions = {
