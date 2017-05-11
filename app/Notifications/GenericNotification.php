@@ -39,7 +39,7 @@ class GenericNotification extends Notification
         return WebPushMessage::create()
             // ->id($notification->id)
             ->title('This Is A Random Webpush')
-            ->icon('/push.png')
+            ->icon(url('/push.png'))
             ->body("The time is {$time}!");
             //->action('View account', 'view_account');
     }
