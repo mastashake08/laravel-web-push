@@ -60,11 +60,13 @@ function urlBase64ToUint8Array(base64String) {
   return outputArray;
 }
 function getSWRegistration(){
+  console.log(navigator.serviceWorker.getRegistration());
   return navigator.serviceWorker.getRegistration();
 }
 function subscribeUserToPush() {
   return getSWRegistration()
   .then(function(registration) {
+    console.log(registration);
     const subscribeOptions = {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(
