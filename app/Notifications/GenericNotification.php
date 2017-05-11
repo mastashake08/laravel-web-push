@@ -11,15 +11,18 @@ use NotificationChannels\WebPush\WebPushChannel;
 class GenericNotification extends Notification
 {
     use Queueable;
+    public $title, $body;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($title, $body)
     {
         //
+        $this->title = $title;
+        $this->body = $body;
     }
 
     /**
@@ -38,9 +41,9 @@ class GenericNotification extends Notification
       $time = \Carbon\Carbon::now();
         return WebPushMessage::create()
             // ->id($notification->id)
-            ->title('This Is A Random Webpush')
+            ->title($this->title)
             ->icon(url('/push.png'))
-            ->body("The time is {$time}!");
+            ->body($this->body);
             //->action('View account', 'view_account');
     }
 
