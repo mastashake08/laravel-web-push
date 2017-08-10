@@ -9,6 +9,10 @@
 
                 <div class="panel-body">
                     <button class="btn btn-info" id="enable-notifications" onclick="enableNotifications()"> Enable Push Notifications </button>
+                    <input class="form-control" id="title">
+                    <textarea id="body" class="form-control">
+                    <button class="btn" onclick="sendNotification()">Send Notification</button>
+                    </textarea>
                 </div>
             </div>
         </div>
@@ -16,6 +20,19 @@
 </div>
 
 <script>
+function sendNotification(){
+  var data = new FormData();
+data.append('title', document.getElementById('title').value);
+data.append('body', document.getElementById('body').value);
+
+var xhr = new XMLHttpRequest();
+xhr.open('POST', "{{url('/api/send-notification/'.auth()->user()->id)}}", true);
+xhr.onload = function () {
+    // do something to response
+    console.log(this.responseText);
+};
+xhr.send(data);
+}
 var _registration = null;
 function registerServiceWorker() {
   return navigator.serviceWorker.register('js/service-worker.js')
