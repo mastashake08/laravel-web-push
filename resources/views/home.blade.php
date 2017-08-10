@@ -9,8 +9,8 @@
 
                 <div class="panel-body">
                     <button class="btn btn-info" id="enable-notifications" onclick="enableNotifications()"> Enable Push Notifications </button>
-                    <input class="form-control" id="title">
-                    <textarea id="body" class="form-control">
+                    <input class="form-control" id="title" placeholder="Notification Title">
+                    <textarea id="body" class="form-control" placeholder="Notification body"></textarea>
                     <button class="btn" onclick="sendNotification()">Send Notification</button>
                     </textarea>
                 </div>
