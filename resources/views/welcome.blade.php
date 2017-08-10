@@ -80,11 +80,13 @@
             <div class="content">
                 <div class="title m-b-md">
                     {{config('app.name')}}
-                    Simple web push example using Laravel 5.4 notifications.
-                    Register, enable notifications, have fun! Check out some of my
-                    other projects below!
-                </div>
 
+                </div>
+                <p>
+                  Simple web push example using Laravel 5.4 notifications.
+                  Register, enable notifications, have fun! Check out some of my
+                  other projects below!
+                </p>
                 <div class="links">
                     <a href="https://jyroneparker.com" target="_blank">My Blog</a>
                     <a href="https://treatmeathome.online" target="_blank">Treat Me At Home</a>
