@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    {{config('app.name')}}
+                    Web Push
 
                 </div>
                 <p>
